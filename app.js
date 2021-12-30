@@ -18,9 +18,6 @@ app.use(session({//session配置
 
 
 
-
-// cp = require("child_process"); // 可自动打开浏览器模块
-
 app.use(require("cors")()); //解决拦截跨源请求问题
 
 // 引入模板引擎，设置模板引擎加载资源的后缀名
@@ -58,7 +55,7 @@ app.post('/login',function(req,res,next){
     }
   })
   //console.log('用户登录',data)
-  //res.render('index.html')
+
 })
 
 
@@ -76,7 +73,7 @@ app.post('/regist',function(req,res,next){
   user.save((err) => {
     if(err) return console.log(err)
     console.log("插入成功")
-    app.redirect("/login")
+    res.redirect("/login")
 })
 })
 
@@ -90,9 +87,6 @@ app.get('/index',function(req,res){
   res.render('index.html')
 })
 
-// app.post('/users/regist',function(req,res){
-//   res.render('login.html')
-// })
 
 
 
