@@ -65,7 +65,7 @@
                 <div class="row">
                   <div class="form-group col-sm-4">
                     <form class="search-validation">
-                      <div class="form-group" style="margin-left: 0rem">
+                     <!-- <div class="form-group" style="margin-left: 0rem">
                         <button
                           class="btn btn-primary"
                           type="button"
@@ -87,7 +87,7 @@
                             required
                           />
                         </div>
-                      </div>
+                      </div>-->
                     </form>
                   </div>
                   <div class="form-group col-sm-4">
@@ -109,7 +109,7 @@
                             onkeypress="return event.keyCode != 13;"
                             v-on:keyup.enter="search1()"
                             v-model="inputs"
-                            placeholder="请输入关键字!"
+                            placeholder="请输入姓名关键字!"
                             required
                           />
                         </div>
@@ -452,7 +452,7 @@
                           <input
                             class="form-control"
                             type="text"
-                            name="machine_learning"
+                            oninput="if(value>100)value=100;if(value<0)value=0"
                             v-model="newItems.machine_learning"
                             pattern="^[0-9]*$"
                             required
@@ -470,7 +470,7 @@
                           <input
                             class="form-control"
                             type="text"
-                            name="nodejs"
+                            oninput="if(value>100)value=100;if(value<0)value=0"
                             v-model="newItems.nodejs"
                             pattern="^[0-9]*$"
                             required
@@ -488,7 +488,7 @@
                           <input
                             class="form-control"
                             type="text"
-                            name="microservice"
+                            oninput="if(value>100)value=100;if(value<0)value=0"
                             v-model="newItems.microservice"
                             pattern="^[0-9]*$"
                             required
@@ -506,7 +506,7 @@
                           <input
                             class="form-control"
                             type="text"
-                            name="rstudio"
+                            oninput="if(value>100)value=100;if(value<0)value=0"
                             v-model="newItems.rstudio"
                             pattern="^[0-9]*$"
                             required
@@ -524,7 +524,7 @@
                           <input
                             class="form-control"
                             type="text"
-                            name="system_safety"
+                            oninput="if(value>100)value=100;if(value<0)value=0"
                             v-model="newItems.system_safety"
                             pattern="^[0-9]*$"
                             required
@@ -564,7 +564,7 @@
               <div class="modal-dialog modal-danger" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">危险</h5>
+                    <h5 class="modal-title">警告！！！</h5>
                     <button
                       class="close"
                       type="button"
@@ -896,18 +896,18 @@
               }
             },
             // 精确查询
-            search() {
-              var form =
-                document.getElementsByClassName("search-validation")[0];
-              if (form.checkValidity() === false) {
-                this.message = "只能输入数字，且不能为空!";
-                $("#failModal").modal("show");
-              } else {
-                this.str = this.inputs = "";
-                this.query = this.input;
-                this.getScore();
-              }
-            },
+            // search() {
+            //   var form =
+            //     document.getElementsByClassName("search-validation")[0];
+            //   if (form.checkValidity() === false) {
+            //     this.message = "只能输入数字，且不能为空!";
+            //     $("#failModal").modal("show");
+            //   } else {
+            //     this.str = this.inputs = "";
+            //     this.query = this.input;
+            //     this.getScore();
+            //   }
+            // },
             // 模糊查询
             search1(val) {
               this.query = this.input = null;

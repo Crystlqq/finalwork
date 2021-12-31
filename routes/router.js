@@ -29,7 +29,7 @@ router.get("/user/query", async (req, res) => {
   console.log(req.query);
 
   if (Sno) {
-    // 精确查询
+    // 精确查询暂无法使用哭
     console.log("Sno:", Sno);
     let userInfo = await Score.findOne({ Sno: Sno });
     if (userInfo) {
