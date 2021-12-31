@@ -85,6 +85,7 @@ router.post("/user/create", (req, res) => {
       res.json(responseData);
       return;
     }
+    
     let userInfo = await Score.findOne({ Sno: Sno });
     console.log("结果:", userInfo);
     if (userInfo) {
